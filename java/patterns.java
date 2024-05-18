@@ -11,29 +11,37 @@ public class patterns {
     public static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        // square();
-        // rectangle();
-        // hollowSquare();
-        // hollowRectangle();
-        // halfPyramid();
-        // invertedHalfPyramid();
-        // hollowHalfPyramid();
-        // invertedHollowHalfPyramid();
-        // numericHalfPyramid();
-        // invertedNumericHalfPyramid();
-        // numericHollowHalfPyramid();
-        // invertedNumericHollowHalfPyramid();
-        // numericPalindromeFullPyramid();
-        // soldiHalfDimond();
-        // fancyPattern1();
-        // fancyPattern2();
-        // fancyPattern3();
-        // floydsTrianglePattern();
-        // pascalTrianglePattern();
-        // butterflyPattern();
 
-        
+        // square(7);
+        // rectangle(7, 5);
+        // hollowSquare(7);
+        // hollowRectangle(7, 5);
+        // halfPyramid(7);
+        // invertedHalfPyramid(7);
+        // hollowHalfPyramid(7);
+        // invertedHollowHalfPyramid(7);
+        // numericHalfPyramid(7);
+        // invertedNumericHalfPyramid(7);
+        // numericHollowHalfPyramid(7);
+        // invertedNumericHollowHalfPyramid(7);
+        // numericPalindromeFullPyramid(7);
+        // soldiHalfDimond(7);
+        // fancyPattern1(7);
+        // fancyPattern2(7);
+        // fancyPattern3(7);
+        // floydsTrianglePattern(7);
+        // pascalTrianglePattern(7);
+        // butterflyPattern(7);
+        // fullPyramid(7);
+        // invertedFullPyramid(7);
+        // dimond(7);
+        // hollowPyramid(7);
+        // invertedHollowPyramid(7);
+        // hollowDiamond(7);
+        // mixPyramid(7);
+        // half_fancy_12_pattern(7);
+        // full_fancy_12_pattern(7);     
+        // ABCBA_pattern(7);
         
         sc.close();
     }
@@ -728,4 +736,402 @@ public class patterns {
         }
     }
 
+    // Q21. Full Pyramid
+    //     * 
+    //    * * 
+    //   * * * 
+    //  * * * * 
+    // * * * * *
+
+    public static void fullPyramid(int... n) {
+        int size = 0;
+
+        // Checks if function is called with any size argument
+        if(n.length != 0) {
+            size = n[0];
+        } else {
+            System.out.print("Enter size of the pyramid: ");
+            size = sc.nextInt();  
+        }
+
+        for (int i = 0; i < size; i++) {
+            // Print spaces
+            for (int j = 0; j < size-i-1; j++) {
+                System.out.print(" ");
+            }
+
+            // Print Stars
+            for (int j = 0; j < i+1; j++) {
+                System.out.print("* ");
+            }
+
+            System.out.println();
+        }
+    }
+
+    // Q22. Inverted Full Pyramid
+    // * * * * *
+    //  * * * *
+    //   * * *
+    //    * *
+    //     *
+
+    public static void invertedFullPyramid(int... n) {
+        int size = 0;
+
+        // Checks if function is called with any size argument
+        if(n.length != 0) {
+            size = n[0];
+        } else {
+            System.out.print("Enter size of the pattern: ");
+            size = sc.nextInt();  
+        }
+
+        for (int i = 0; i < size; i++) {
+            // Printing spaces
+            for (int j = 0; j < i; j++) {
+                System.out.print(" ");
+            }
+
+            // Printing stars
+            for (int j = 0; j < size-i; j++) {
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+    }
+
+    // Q23. Dimond Pattern
+    //      * 
+    //     * * 
+    //    * * * 
+    //   * * * * 
+    //  * * * * *    
+    // * * * * * * 
+    // * * * * * *  
+    //  * * * * *
+    //   * * * *
+    //    * * *
+    //     * *
+    //      *
+
+    public static void dimond(int... n) {
+        int size = 0;
+
+        // Checks if function is called with any size argument
+        if(n.length != 0) {
+            size = n[0];
+        } else {
+            System.out.print("Enter size of the pattern: ");
+            size = sc.nextInt();  
+        }
+
+        // Full Pyramid + Inverted Pyramid = Dimond
+        fullPyramid(size);
+        invertedFullPyramid(size);
+    }
+
+    // Q24. Hollow Pyramid
+    //       * 
+    //      * * 
+    //     *   * 
+    //    *     * 
+    //   *       * 
+    //  *         * 
+    // * * * * * * *
+
+    public static void hollowPyramid(int... n) {
+        int size = 0;
+
+        // Checks if function is called with any size argument
+        if(n.length != 0) {
+            size = n[0];
+        } else {
+            System.out.print("Enter size of the pyramid: ");
+            size = sc.nextInt();  
+        }
+
+        for (int i = 0; i < size; i++) {
+            // Printing spaces
+            for (int j = 0; j < size-i-1; j++) {
+                System.out.print(" ");
+            }
+
+            // Printing Stars
+            for (int j = 0; j < i+1; j++) {
+                if (i==0 || i==size-1 || j==0|| i==j) {
+                    System.out.print("* ");
+                } else {
+                    System.out.print("  ");
+                }
+            }
+
+            System.out.println();
+        }
+    }
+
+    // Q25. Inverted Hollow pyramid
+    // * * * * * * * 
+    //  *         * 
+    //   *       * 
+    //    *     * 
+    //     *   * 
+    //      * * 
+    //       *
+
+    public static void invertedHollowPyramid(int... n) {
+        int size = 0;
+
+        // Checks if function is called with any size argument
+        if(n.length != 0) {
+            size = n[0];
+        } else {
+            System.out.print("Enter size of the pyramid: ");
+            size = sc.nextInt();  
+        }
+
+        for (int i = 0; i < size; i++) {
+            // Printing Spaces
+            for (int j = 0; j < i; j++) {
+                System.out.print(" ");
+            }            
+
+            // Printing Stars
+            for (int j = 0; j < size-i; j++) {
+                if (i==0 || i==size-1 || j==0 || j==size-i-1) {
+                    System.out.print("* ");
+                } else {
+                    System.out.print("  ");
+                }
+            }
+
+            System.out.println();
+        }
+    }
+
+    // Q27. Hollow Dimond
+    //      * 
+    //     * *
+    //    *   *
+    //   *     *
+    //  *       *
+    // *         *
+    // *         *
+    //  *       *
+    //   *     *
+    //    *   *
+    //     * *
+    //      *
+    
+    public static void hollowDiamond(int... n) {
+        int size = 0;
+
+        // Checks if function is called with any size argument
+        if(n.length != 0) {
+            size = n[0];
+        } else {
+            System.out.print("Enter size: ");
+            size = sc.nextInt();  
+        }
+        
+        // Printing Growing Phase
+        for (int i = 0; i < size; i++) {
+            // Printing spaces
+            for (int j = 0; j < size-i-1; j++) {
+                System.out.print(" ");
+            }
+
+            // Printing Stars
+            for (int j = 0; j < i+1; j++) {
+                if (i==0 || j==0|| i==j) {
+                    System.out.print("* ");
+                } else {
+                    System.out.print("  ");
+                }
+            }
+
+            System.out.println();
+        }
+
+        // Printing Shrinking Phase
+        for (int i = 0; i < size; i++) {
+            // Printing Spaces
+            for (int j = 0; j < i; j++) {
+                System.out.print(" ");
+            }            
+
+            // Printing Stars
+            for (int j = 0; j < size-i; j++) {
+                if (i==size-1 || j==0 || j==size-i-1) {
+                    System.out.print("* ");
+                } else {
+                    System.out.print("  ");
+                }
+            }
+
+            System.out.println();
+        }
+
+    }
+
+    // Q28. Mix Pyramid
+    // * * * * *   * * * * * 
+    // * * * *       * * * *
+    // * * *           * * *
+    // * *               * *
+    // *                   *
+    // *                   *
+    // * *               * *
+    // * * *           * * *
+    // * * * *       * * * *
+    // * * * * *   * * * * *
+
+    public static void mixPyramid(int... n) {
+        int size = 0;
+
+        // Checks if function is called with any size argument
+        if(n.length != 0) {
+            size = n[0];
+        } else {
+            System.out.print("Enter size: ");
+            size = sc.nextInt();  
+        }
+
+        // Upright part
+        for (int i = 0; i < size; i++) {
+            // Printing left Stars
+            for (int j = 0; j < size-i; j++) {
+                System.out.print("* ");
+            }
+
+            // Printing Spaces
+            for (int j = 0; j < 2*i+1; j++) {
+                System.out.print("  ");
+            }
+
+            // Printing right stars
+            for (int j = 0; j < size-i; j++) {
+                System.out.print("* ");
+            }
+
+            System.out.println();
+        }
+
+        // Inverted Part
+        for (int i = 0; i < size; i++) {
+            // Printing left stars
+            for (int j = 0; j < i+1; j++) {
+                System.out.print("* ");
+            }
+
+            // Printing Spaces
+            for (int j = 0; j < (2*(size-i))-1; j++) {
+                System.out.print("  ");
+            }
+
+            // Printing right stars
+            for (int j = 0; j < i+1; j++) {
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+
+    }
+
+    // Q29. Half Fancy 12 Pattern
+    // 1 
+    // 2 * 2
+    // 3 * 3 * 3
+    // 4 * 4 * 4 * 4
+    // 5 * 5 * 5 * 5 * 5
+
+    public static void half_fancy_12_pattern(int... n) {
+        int size = 0;
+
+        // Checks if function is called with any size argument
+        if(n.length != 0) {
+            size = n[0];
+        } else {
+            System.out.print("Enter size of the pattern: ");
+            size = sc.nextInt();  
+        }
+
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < i+1; j++) {
+                System.out.print(i+1 + " ");
+                if (i>j) {
+                    System.out.print("* ");
+                }
+            }
+            System.out.println();
+        }
+
+    }
+
+    // Q30. Full Fancy 12 Pattern
+    // 1 
+    // 2 * 2
+    // 3 * 3 * 3
+    // 4 * 4 * 4 * 4
+    // 5 * 5 * 5 * 5 * 5
+    // 4 * 4 * 4 * 4
+    // 3 * 3 * 3
+    // 2 * 2
+    // 1 
+
+    public static void full_fancy_12_pattern(int... n) {
+        int size = 0;
+
+        // Checks if function is called with any size argument
+        if(n.length != 0) {
+            size = n[0];
+        } else {
+            System.out.print("Enter size: ");
+            size = sc.nextInt();  
+        }
+
+        // Upright pattern
+        half_fancy_12_pattern(size);
+
+        // Inverted Part
+        for (int i = 0; i < size-1; i++) {
+            for (int j = 0; j < size-i-1; j++) {
+                System.out.print(size-i-1 + " ");
+                if (j<size-i-2) {
+                    System.out.print("* ");
+                }
+            }
+            System.out.println();
+        }
+
+    }
+
+    // Q31. ABCBA Pattern
+    // A 
+    // A B A
+    // A B C B A
+    // A B C D C B A
+    // A B C D E D C B A
+
+    public static void ABCBA_pattern(int... n) {
+        int size = 0;
+
+        // Checks if function is called with any size argument
+        if(n.length != 0) {
+            size = n[0];
+        } else {
+            System.out.print("Enter size of the pyramid: ");
+            size = sc.nextInt();  
+        }
+
+        for (int i = 0; i < size; i++) {
+            // initialize ch with char 'A' - 1 or 64 (ASCII Value)
+            char ch = 'A' - 1;
+            for (int j = 0; j < 2*i+1; j++) {   
+                ch = j>i ? (char)(ch-1) : (char)(ch+1);
+                System.out.print(ch + " ");
+            }
+            System.out.println();
+        }
+    }
 }
